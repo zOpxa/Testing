@@ -24,7 +24,7 @@ stats[gunName].Damage = 95
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = 100
-stats[gunName].BulletSpeed = 100
+stats[gunName].BulletSpeed = 80
 
 local gunName = "Winchester Rifle"
 stats[gunName].GunType = "Rifle"
@@ -34,7 +34,7 @@ stats[gunName].Damage = 95
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = 100
-stats[gunName].BulletSpeed = 100
+stats[gunName].BulletSpeed = 80
 
 local gunName = "Pump-action Shotgun"
 stats[gunName].GunType = "Shotgun"
@@ -44,7 +44,7 @@ stats[gunName].Damage = 95
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = 100
-stats[gunName].BulletSpeed = 100
+stats[gunName].BulletSpeed = 80
 
 
 end)
@@ -84,7 +84,7 @@ game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster
             esp.Text = "{"..v.Name.."}"
             gui:Clone().Parent = v.Character.Head
     end
-end
+ end
 end)
 end)
 -- End of Section 2.
