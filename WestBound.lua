@@ -222,7 +222,7 @@ end
 
 local function CashRegisterFarm()
     for _, Item in next, Workspace:GetChildren() do
-        if BagAmount.Value == BagLevel.Value then 
+        if BagAmount.Value == BagLevel.Value then
             TeleportToCamp()
             CashRegisterFinished = true
             break
@@ -236,7 +236,7 @@ end
 
 local function BankFarm()
     for _, Item in next, Workspace:GetChildren() do
-        if BagAmount.Value == BagLevel.Value then 
+        if BagAmount.Value == BagLevel.Value then
             TeleportToCamp()
             BankFinished = true
             break
@@ -268,7 +268,7 @@ end)
 
 -- Information Toggle UI
 Section4:NewKeybind("Press F To Toggle The UI", "KeybindInfo", Enum.KeyCode.F, function()
-    Library:ToggleUI()  
+    Library:ToggleUI()
 end)
 -- End Information Toggle UI
 
