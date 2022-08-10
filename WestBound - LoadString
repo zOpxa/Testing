@@ -1,0 +1,1 @@
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/zOpxa/Testing/main/WestBound.lua"))()
