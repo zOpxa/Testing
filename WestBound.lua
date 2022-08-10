@@ -52,8 +52,8 @@ end)
 Section2:NewButton("Player ESP", "0", function()
 
 local esp_settings = { ---- table for esp settings 
-textsize = 8,
-colour = 255,255,255
+textsize = 20,
+colour = 253, 0, 254
 }
  
 local gui = Instance.new("BillboardGui")
@@ -112,7 +112,7 @@ local chams = function()
 						 adorn.Adornee = part
                         adorn.AlwaysOnTop = true
                         adorn.ZIndex = 5
-                        adorn.Transparency = 0.2
+                        adorn.Transparency = 0
                         adorn.Color = v.TeamColor
                         local adorn2 = Instance.new('BoxHandleAdornment',folder)
                         adorn2.Name = v.Name Color3.new(1,1,1)
