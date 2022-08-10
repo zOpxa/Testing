@@ -16,7 +16,7 @@ local Character = player.Character or player.CharacterAdded:Wait()
 local Worky = game.Workspace
 
 while true do
-    wait(0.1)
+    task.wait(0.1)
     for i,v in pairs(Worky:GetChildren()) do 
     if v:IsA('Part') then 
     Character:MoveTo(v.Position)
