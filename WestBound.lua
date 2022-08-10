@@ -262,3 +262,13 @@ Section4:NewKeybind("Press F To Toggle The UI", "KeybindInfo", Enum.KeyCode.F, f
 end)
 -- End Information Toggle UI
 
+-- Section 2 Function Start
+Section2:NewButton("Player Godmode", "0", function()
+    local ChangeCharacter = Character:FindFirstChild('ChangeCharacter')
+    local function Godmode()
+        ChangeCharacter:FireServer('Damage', 0/0)
+        Godmode()
+    end
+end)
+-- End of Section 2.
+
