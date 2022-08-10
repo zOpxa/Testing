@@ -51,16 +51,16 @@ end)
 -- Section 2 Function Start
 Section2:NewButton("Player ESP", "0", function()
 
-local esp_settings = { ---- table for esp settings 
-textsize = 20,
-colour = 253, 0, 254
+    local esp_settings = { ---- table for esp settings 
+    textsize = 20,
+    colour = 255, 0, 255
 }
- 
+
 local gui = Instance.new("BillboardGui")
 local esp = Instance.new("TextLabel",gui) ---- new instances to make the billboard gui and the textlabel
- 
- 
- 
+
+
+
 gui.Name = "ESP"; ---- properties of the esp
 gui.ResetOnSpawn = false
 gui.AlwaysOnTop = true;
@@ -72,80 +72,84 @@ esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
 esp.BorderSizePixel = 4;
 esp.BorderColor3 = Color3.new(esp_settings.colour)
 esp.BorderSizePixel = 0
-esp.Font = "GothamSemibold"
+esp.Font = "FredokaOne"
 esp.TextSize = esp_settings.textsize
 esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
- 
+
 game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
     for i,v in pairs (game:GetService("Players"):GetPlayers()) do
         if v ~= game:GetService("Players").LocalPlayer and v.Character.Head:FindFirstChild("ESP")==nil  then -- craeting checks for team check, local player etc
             esp.Text = "{"..v.Name.."}"
             gui:Clone().Parent = v.Character.Head
-
-local players = game:GetService('Players')
-local player = players.LocalPlayer
-local char = player.Character
-local switch = true
-
-local chams = function()
-    switch = true
-    local p = players:GetPlayers()
-    for _, v in next, player.PlayerGui:GetChildren() do
-        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
-            v:Destroy()
-        end
     end
-    for _, v in next, p do
-        if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil and v.TeamColor ~= player.TeamColor then
-            if v ~= player then
-                local folder = Instance.new('Folder',player.PlayerGui)
-                folder.Name = v.Name
-                for _, part in pairs(v.Character:GetChildren()) do
-                    if part:IsA('BasePart') then
-                        local adorn = Instance.new('BoxHandleAdornment',folder)
-                        adorn.Name = v.Name
-                        if part.Name ~= 'Head' then
-                            adorn.Size = part.Size
-                        else
-                            adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
-                        end
-						 adorn.Adornee = part
-                        adorn.AlwaysOnTop = true
-                        adorn.ZIndex = 5
-                        adorn.Transparency = 0
-                        adorn.Color = v.TeamColor
-                        local adorn2 = Instance.new('BoxHandleAdornment',folder)
-                        adorn2.Name = v.Name Color3.new(1,1,1)
-                        if part.Name ~= 'Head' then
-                            adorn2.Size = part.Size*1.1
-                        else
-                            adorn2.Size = (part.Size*1.1)-Vector3.new(part.Size.X/2,0,0)
+end
+end)
+end)
+-- End of Section 2.
+
+-- Section 2 Phrase 2 Function Start
+Section2:NewButton("Player Chams", "0", function()
+    local players = game:GetService('Players')
+    local player = players.LocalPlayer
+    local char = player.Character
+    local switch = true
+    
+    local chams = function()
+        switch = true
+        local p = players:GetPlayers()
+        for _, v in next, player.PlayerGui:GetChildren() do
+            if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+                v:Destroy()
+            end
+        end
+        for _, v in next, p do
+            if v.Character ~= nil and v.Character:FindFirstChild('Head') ~= nil and v.TeamColor ~= player.TeamColor then
+                if v ~= player then
+                    local folder = Instance.new('Folder',player.PlayerGui)
+                    folder.Name = v.Name
+                    for _, part in pairs(v.Character:GetChildren()) do
+                        if part:IsA('BasePart') then
+                            local adorn = Instance.new('BoxHandleAdornment',folder)
+                            adorn.Name = v.Name
+                            if part.Name ~= 'Head' then
+                                adorn.Size = part.Size
+                            else
+                                adorn.Size = (part.Size)-Vector3.new(part.Size.X/2,0,0)
+                            end
+                             adorn.Adornee = part
+                            adorn.AlwaysOnTop = true
+                            adorn.ZIndex = 5
+                            adorn.Transparency = 0.2
+                            adorn.Color = v.TeamColor
+                            local adorn2 = Instance.new('BoxHandleAdornment',folder)
+                            adorn2.Name = v.Name Color3.new(1,1,1)
+                            if part.Name ~= 'Head' then
+                                adorn2.Size = part.Size*8
+                            else
+                                adorn2.Size = (part.Size*8)-Vector3.new(part.Size.X/2,0,0)
+                            end
                         end
                     end
                 end
             end
         end
     end
-end
-
-local turn_on = chams
-local turn_off = function()
-    switch = false
-    for _, v in next, player.PlayerGui:GetChildren() do
-        if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
-            v:Destroy()
+    
+    local turn_on = chams
+    local turn_off = function()
+        switch = false
+        for _, v in next, player.PlayerGui:GetChildren() do
+            if v:IsA('Folder') and ( game:GetService('Players'):FindFirstChild(v.Name) or v:FindFirstChildOfClass('BoxHandleAdornment') ) then
+                v:Destroy()
+            end
         end
     end
-end
-turn_on()
-
-players.PlayerAdded:connect(function(player)
-    if switch then
-        chams()
+    
+    
+    
+    turn_on()
+        if switch then
+            chams()
     end
 end)
-    end
-  end
- end)    
-end)
--- End of Section 2.
+-- Section 2 Phrase 2 Function End
