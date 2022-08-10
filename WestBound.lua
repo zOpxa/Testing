@@ -3,10 +3,12 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib("WestBound Haxs ~ By Twisted", "Sentinel")
 
 local Tab1 = Window:NewTab("Main")
+local Tab2 = Window:NewTab("Information")
 
 local Section1 = Tab1:NewSection("Gun-Stats")
 local Section2 = Tab1:NewSection("Player Options")
 local Section3 = Tab1:NewSection("AutoFarm")
+local Section4 = Tab2:NewSection("Made By Twisted_Secret :)")
 
 
 
@@ -54,7 +56,6 @@ Section2:NewButton("Player ESP Sir", "0", function()
 
     local esp_settings = { ---- table for esp settings 
     textsize = 20,
-    colour = 255, 0, 254
 }
 
 local gui = Instance.new("BillboardGui")
@@ -67,15 +68,15 @@ gui.ResetOnSpawn = false
 gui.AlwaysOnTop = true;
 gui.LightInfluence = 0;
 gui.Size = UDim2.new(1.75, 0, 1.75, 0);
-esp.BackgroundColor3 = Color3.fromRGB(255, 0, 254);
+esp.BackgroundColor3 = Color3.fromRGB(255, 255, 255);
 esp.Text = ""
 esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
 esp.BorderSizePixel = 4;
-esp.BorderColor3 = Color3.new(esp_settings.colour)
+esp.BorderColor3 = Color3.new(255,255,255)
 esp.BorderSizePixel = 0
 esp.Font = "FredokaOne"
 esp.TextSize = esp_settings.textsize
-esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
+esp.TextColor3 = Color3.fromRGB(255, 0, 254) -- text colour
 
 game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
     for i,v in pairs (game:GetService("Players"):GetPlayers()) do
@@ -156,7 +157,7 @@ end)
 -- Section 2 Phrase 2 Function End
 
 -- Section 3 
-Section1:NewButton("Auto-Farm Sir", "0", function()
+Section3:NewButton("Auto-Farm Sir", "0", function()
 -- // Services
 local Workspace = game:GetService('Workspace')
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
@@ -254,4 +255,10 @@ RunService.RenderStepped:Connect(function()
 end)
     end)
 -- End Section 3
+
+-- Information Toggle UI
+Section4:NewKeybind("Press F To Toggle The UI", "KeybindInfo", Enum.KeyCode.F, function()
+    Library:ToggleUI()  
+end)
+-- End Information Toggle UI
 
