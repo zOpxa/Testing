@@ -1,0 +1,26 @@
+-- Blox Fruit Exploit, Scripted By Twisted ~ OP
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Blox Fruit's By Twisted", "Midnight")
+
+local Tab1 = Window:NewTab("Main")
+
+local Section1 = Tab1:NewSection("Auto-Farm")
+
+
+Section1:NewButton("Auto-Farm", "0", function()
+local players = game:GetService('Players')
+local player = players.LocalPlayer
+local Character = player.Character or player.CharacterAdded:Wait()
+local Worky = game.Workspace
+
+while true do
+    wait(0.1)
+    for i,v in pairs(Worky:GetChildren()) do 
+    if v:IsA('Part') then 
+    Character:MoveTo(v.Position)
+  end
+end
+end
+end)
