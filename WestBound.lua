@@ -53,7 +53,7 @@ Section2:NewButton("Player ESP", "0", function()
 
     local esp_settings = { ---- table for esp settings 
     textsize = 20,
-    colour = 255, 0, 255
+    colour = 255, 0, 254
 }
 
 local gui = Instance.new("BillboardGui")
