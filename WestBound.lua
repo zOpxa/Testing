@@ -46,6 +46,16 @@ stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = 100
 stats[gunName].BulletSpeed = 50
 
+local gunName = "Mosin-Nagant"
+stats[gunName].GunType = "Rifle"
+stats[gunName].MaxShots = 150
+stats[gunName].ReloadSpeed = 0
+stats[gunName].Damage = 100
+stats[gunName].equipTime = 0
+stats[gunName].prepTime = 0
+stats[gunName].HipFireAccuracy = 100
+stats[gunName].BulletSpeed = 60
+
 
 end)
 -- End Section 1 
