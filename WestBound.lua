@@ -6,6 +6,7 @@ local Tab1 = Window:NewTab("Main")
 
 local Section1 = Tab1:NewSection("Gun-Stats")
 local Section2 = Tab1:NewSection("Player Options")
+local Section3 = Tab1:NewSection("AutoFarm")
 
 
 
@@ -20,7 +21,7 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 95
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 75
+stats[gunName].HipFireAccuracy = 100
 stats[gunName].BulletSpeed = 100
 
 local gunName = "Winchester Rifle"
@@ -30,7 +31,7 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 95
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 75
+stats[gunName].HipFireAccuracy = 100
 stats[gunName].BulletSpeed = 100
 
 local gunName = "Pump-action Shotgun"
@@ -40,7 +41,7 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 95
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 75
+stats[gunName].HipFireAccuracy = 100
 stats[gunName].BulletSpeed = 100
 
 
@@ -49,7 +50,7 @@ end)
 
 
 -- Section 2 Function Start
-Section2:NewButton("Player ESP", "0", function()
+Section2:NewButton("Player ESP Sir", "0", function()
 
     local esp_settings = { ---- table for esp settings 
     textsize = 20,
@@ -88,7 +89,7 @@ end)
 -- End of Section 2.
 
 -- Section 2 Phrase 2 Function Start
-Section2:NewButton("Player Chams", "0", function()
+Section2:NewButton("Player Chams Sir", "0", function()
     local players = game:GetService('Players')
     local player = players.LocalPlayer
     local char = player.Character
@@ -153,3 +154,104 @@ Section2:NewButton("Player Chams", "0", function()
     end
 end)
 -- Section 2 Phrase 2 Function End
+
+-- Section 3 
+Section1:NewButton("Auto-Farm Sir", "0", function()
+-- // Services
+local Workspace = game:GetService('Workspace')
+local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local Players = game:GetService('Players')
+local RunService = game:GetService('RunService')
+
+-- // Player
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character
+local HumanoidRootPart = Character.HumanoidRootPart
+local States = LocalPlayer:FindFirstChild('States')
+local Stats = LocalPlayer:FindFirstChild('Stats')
+
+-- // Remotes
+local GeneralEvents = ReplicatedStorage:FindFirstChild('GeneralEvents')
+local RobRemote = GeneralEvents:FindFirstChild('Rob')
+local ChangeCharacter = Character:FindFirstChild('ChangeCharacter')
+local LassoEvent = GeneralEvents:FindFirstChild('LassoEvents')
+
+-- // Paths
+local ChestFolder = Workspace:FindFirstChild('ChestFolder')
+local Lassod = States:FindFirstChild('Lassod')
+local Hogtied = States:FindFirstChild('Hogtied')
+local BagLevel = Stats:FindFirstChild('BagSizeLevel'):FindFirstChild('CurrentAmount')
+local BagAmount = States:FindFirstChild('Bag')
+
+-- // Locations
+local Camp = CFrame.new(1636.62537, 104.349976, -1736.184)
+
+-- // Status
+local CashRegisterFinished = false
+local BankFinished = false
+
+-- // Functions
+local function TeleportToCamp()
+    HumanoidRootPart.CFrame = Camp
+end
+
+local function Godmode()
+    ChangeCharacter:FireServer('Damage', 0/0)
+end
+
+local function AntiAFK()
+    for _, Connection in next, getconnections(LocalPlayer.Idled) do
+        Connection:Disable()
+    end
+end
+
+local function HideName()
+    Character:FindFirstChild('Head'):FindFirstChild('NameTag'):Destroy()
+end
+
+local function CashRegisterFarm()
+    for _, Item in next, Workspace:GetChildren() do
+        if BagAmount.Value == BagLevel.Value then 
+            TeleportToCamp()
+            CashRegisterFinished = true
+            break
+        elseif Item:IsA('Model') and Item.Name == 'CashRegister' then
+            HumanoidRootPart.CFrame = Item:FindFirstChild('Open').CFrame
+            RobRemote:FireServer('Register', {['Part'] = Item:FindFirstChild('Union'), ['OpenPart'] = Item:FindFirstChild('Open'), ['ActiveValue'] = Item:FindFirstChild('Active'), ['Active'] = true})
+        end
+    end    
+    CashRegisterFinished = true
+end
+
+local function BankFarm()
+    for _, Item in next, Workspace:GetChildren() do
+        if BagAmount.Value == BagLevel.Value then 
+            TeleportToCamp()
+            BankFinished = true
+            break
+        elseif Item:IsA('Model') and Item.Name == 'Safe' and Item:FindFirstChild('Amount').Value > 0 then
+            if Item:FindFirstChild('Open').Value == true then
+                HumanoidRootPart.CFrame = Item:FindFirstChild('Safe').CFrame
+                RobRemote:FireServer('Safe', Item)
+            elseif Item:FindFirstChild('Open').Value == false then
+                HumanoidRootPart.CFrame = Item:FindFirstChild('Safe').CFrame
+                Item:FindFirstChild('OpenSafe'):FireServer('Completed')
+                RobRemote:FireServer('Safe', Item)
+            end
+        end
+    end
+    BankFinished = true
+end
+
+-- // Main
+Godmode()
+HideName()
+AntiAFK()
+RunService.RenderStepped:Connect(function()
+    coroutine.wrap(BankFarm)()
+    coroutine.wrap(CashRegisterFarm)()
+    repeat task.wait() until CashRegisterFinished == true and BankFarmFinished == true
+end)
+    end)
+-- End Section 3
+
