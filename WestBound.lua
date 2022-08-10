@@ -20,31 +20,31 @@ local gunName = "Colt Navy"
 stats[gunName].GunType = "Pistol"
 stats[gunName].MaxShots = 150
 stats[gunName].ReloadSpeed = 0
-stats[gunName].Damage = 95
+stats[gunName].Damage = 100
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = 100
-stats[gunName].BulletSpeed = 80
+stats[gunName].BulletSpeed = 90
 
 local gunName = "Winchester Rifle"
 stats[gunName].GunType = "Rifle"
 stats[gunName].MaxShots = 150
 stats[gunName].ReloadSpeed = 0
-stats[gunName].Damage = 95
+stats[gunName].Damage = 100
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = 100
-stats[gunName].BulletSpeed = 80
+stats[gunName].BulletSpeed = 60
 
 local gunName = "Pump-action Shotgun"
 stats[gunName].GunType = "Shotgun"
 stats[gunName].MaxShots = 150
 stats[gunName].ReloadSpeed = 0
-stats[gunName].Damage = 95
+stats[gunName].Damage = 100
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = 100
-stats[gunName].BulletSpeed = 80
+stats[gunName].BulletSpeed = 50
 
 
 end)
