@@ -280,7 +280,7 @@ end)
 Section2:NewButton("Player Godmode", "0", function()
     local ChangeCharacter = Character:WaitForChild('ChangeCharacter')
         ChangeCharacter:FireServer('Damage', 0/0)
-        Print(Player.Name..'Is Now Invisible')
+        Print('Fired.')
 end)
 -- End of Section 2.
 
