@@ -18,15 +18,14 @@ local stats = require(game:GetService("ReplicatedStorage").GunScripts.GunStats)
 
 local gunName = "Colt Navy"
 stats[gunName].GunType = "Pistol"
-stats[gunName].MaxShots = 6
+stats[gunName].MaxShots = 20
 stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 190
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 100
+stats[gunName].HipFireAccuracy = 1000
 stats[gunName].BulletSpeed = 60
-stats[gunName].ZoomAccuracy = 100
-stats[gunName].camShakeResist = 1000
+stats[gunName].ZoomAccuracy = 1000
 
 local gunName = "Winchester Rifle"
 stats[gunName].GunType = "Rifle"
@@ -35,10 +34,9 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 190
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 100
+stats[gunName].HipFireAccuracy = 1000
 stats[gunName].BulletSpeed = 60
-stats[gunName].ZoomAccuracy = 100
-stats[gunName].camShakeResist = 1000
+stats[gunName].ZoomAccuracy = 1000
 
 local gunName = "Pump-action Shotgun"
 stats[gunName].GunType = "Shotgun"
@@ -47,10 +45,9 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 190
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 100
+stats[gunName].HipFireAccuracy = 1000
 stats[gunName].BulletSpeed = 60
-stats[gunName].ZoomAccuracy = 100
-stats[gunName].camShakeResist = 1000
+stats[gunName].ZoomAccuracy = 1000
 
 local gunName = "Mosin-Nagant"
 stats[gunName].GunType = "Rifle"
@@ -59,10 +56,9 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 190
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 100
+stats[gunName].HipFireAccuracy = 1000
 stats[gunName].BulletSpeed = 60
-stats[gunName].ZoomAccuracy = 100
-stats[gunName].camShakeResist = 1000
+stats[gunName].ZoomAccuracy = 1000
 
 
 end)
@@ -282,11 +278,9 @@ end)
 
 -- Section 2 Function Start
 Section2:NewButton("Player Godmode", "0", function()
-    local ChangeCharacter = Character:FindFirstChild('ChangeCharacter')
-    local function Godmode()
+    local ChangeCharacter = Character:WaitForChild('ChangeCharacter')
         ChangeCharacter:FireServer('Damage', 0/0)
-        Godmode()
-    end
+        Print(Player.Name..'Is Now Invisible')
 end)
 -- End of Section 2.
 
