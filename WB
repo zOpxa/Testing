@@ -25,7 +25,7 @@ stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = -1000
 stats[gunName].BulletSpeed = 60
-stats[gunName].ZoomAccuracy = 0
+stats[gunName].ZoomAccuracy = -1000
 
 local gunName = "Winchester Rifle"
 stats[gunName].GunType = "Rifle"
@@ -36,7 +36,7 @@ stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = -1000
 stats[gunName].BulletSpeed = 60
-stats[gunName].ZoomAccuracy = 0
+stats[gunName].ZoomAccuracy = -1000
 
 local gunName = "Pump-action Shotgun"
 stats[gunName].GunType = "Shotgun"
@@ -47,7 +47,7 @@ stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = -1000
 stats[gunName].BulletSpeed = 60
-stats[gunName].ZoomAccuracy = 0
+stats[gunName].ZoomAccuracy = -1000
 
 local gunName = "Mosin-Nagant"
 stats[gunName].GunType = "Rifle"
@@ -58,7 +58,7 @@ stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
 stats[gunName].HipFireAccuracy = -1000
 stats[gunName].BulletSpeed = 60
-stats[gunName].ZoomAccuracy = 0
+stats[gunName].ZoomAccuracy = -1000
 
 
 end)
