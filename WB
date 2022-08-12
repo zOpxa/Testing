@@ -23,7 +23,7 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 190
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 1000
+stats[gunName].HipFireAccuracy = -1000
 stats[gunName].BulletSpeed = 60
 stats[gunName].ZoomAccuracy = 0
 
@@ -34,7 +34,7 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 190
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 1000
+stats[gunName].HipFireAccuracy = -1000
 stats[gunName].BulletSpeed = 60
 stats[gunName].ZoomAccuracy = 0
 
@@ -45,7 +45,7 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 190
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 1000
+stats[gunName].HipFireAccuracy = -1000
 stats[gunName].BulletSpeed = 60
 stats[gunName].ZoomAccuracy = 0
 
@@ -56,7 +56,7 @@ stats[gunName].ReloadSpeed = 0
 stats[gunName].Damage = 190
 stats[gunName].equipTime = 0
 stats[gunName].prepTime = 0
-stats[gunName].HipFireAccuracy = 1000
+stats[gunName].HipFireAccuracy = -1000
 stats[gunName].BulletSpeed = 60
 stats[gunName].ZoomAccuracy = 0
 
